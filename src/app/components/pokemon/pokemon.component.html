@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="dataPoke && dataPoke.name; else noPoke">
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>{{ dataPoke.name?.toLocaleUpperCase() }}</mat-card-title>
@@ -7,3 +7,13 @@
     <img width="100" mat-card-image [src]="dataPoke.sprites.other.dream_world.front_default" [alt]="dataPoke.name">
   </mat-card>
 </div>
+
+<ng-template #noPoke>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Tu Pokemón no fue encontrado</mat-card-title>
+      <mat-card-subtitle>Por favor revisa bien el nombre tipeado</mat-card-subtitle>
+    </mat-card-header>
+    <img width="100" mat-card-image src="./assets/pokeball.png" alt="sin-pokemon">
+  </mat-card>
+</ng-template>

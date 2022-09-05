@@ -5,7 +5,8 @@
 <div class="search-poke">
   <label class="search-poke__label">Puedes buscar un pokemon: </label>
   <mat-form-field class="search-poke__input">
-    <input matInput placeholder="Teclea un pokemon... " [(ngModel)]="searchPoke">
+    <input matInput trim tolowercase placeholder="Teclea un pokemon... " [(ngModel)]="searchPoke"
+      (ngModelChange)="searchPoke = $event.toLowerCase().trim()">
   </mat-form-field>
   <button (click)="getPokemon(searchPoke)" mat-mini-fab color="primary">
     <mat-icon>search</mat-icon>

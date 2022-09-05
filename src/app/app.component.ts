@@ -38,6 +38,24 @@ export class AppComponent implements OnInit {
       this.dataPoke = data;
     } catch (error) {
       console.error(error);
+      this.dataPoke = {
+        name: '',
+        types: [
+          {
+            type: {
+              name: '',
+            },
+          },
+        ],
+        sprites: {
+          front_default: '',
+          other: {
+            dream_world: {
+              front_default: '',
+            },
+          },
+        },
+      };
     }
   }
 }
