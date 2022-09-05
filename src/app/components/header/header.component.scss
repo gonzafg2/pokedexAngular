@@ -1,0 +1,16 @@
+.header {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #263238;
+  &__title {
+    font-size: 2rem;
+    color: #fff;
+  }
+  &__subtitle {
+    font-size: 1rem;
+    color: #fff;
+  }
+}

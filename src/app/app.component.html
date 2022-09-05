@@ -1,40 +1,17 @@
-<mat-toolbar class="navbar">
-  <img height="42" width="auto" src="./assets/poke-logo.png" alt="poke-logo">
-</mat-toolbar>
+<app-navbar></app-navbar>
 
-<header class="header">
-  <h1 class="header__title">Pokedex Angular</h1>
-  <h2 class="header__subtitle">Based on PokeAPI</h2>
-</header>
+<app-header></app-header>
 
 <div class="search-poke">
   <label class="search-poke__label">Puedes buscar un pokemon: </label>
   <mat-form-field class="search-poke__input">
-    <input matInput placeholder="pikachu... " [(ngModel)]="searchText">
+    <input matInput placeholder="Teclea un pokemon... " [(ngModel)]="searchPoke">
   </mat-form-field>
+  <button (click)="getPokemon(searchPoke)" mat-mini-fab color="primary">
+    <mat-icon>search</mat-icon>
+  </button>
 </div>
 
-<div class="container">
-  <ng-template *ngIf="pokemons.length !== 0; else noPoke">
-    <mat-card *ngFor="let pokemon of pokemons" class="example-card">
-      <mat-card-header>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
-  </ng-template>
-  <ng-template #noPoke>
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title>No Pokemons</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-  </ng-template>
-</div>
+<app-pokemon [dataPoke]="dataPoke"></app-pokemon>
 
 <router-outlet></router-outlet>
